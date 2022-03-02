@@ -2,7 +2,7 @@
 /* This is a comment! Text here will be ignored by the browser. */
 body {
      font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
-     background-color: #FFFFFF;
+     background-color: #000000;
      margin: 0;
      padding: 0;
      color: #000;
@@ -34,7 +34,7 @@ a:hover, a:active, a:focus {
 	
 }
 .nav {
-	background: #000000; 
+	background: #FFFFFF; 
 	margin: 0px;
 	padding: 5;
 	float: left;
@@ -43,7 +43,7 @@ a:hover, a:active, a:focus {
 	text-align: center;
 }
 .content {
-	background: #000000;
+	background: #FFFFFF;
 	margin: 0px; 
 	padding: 5;
 	float: left;
@@ -51,7 +51,7 @@ a:hover, a:active, a:focus {
 	text-align: left;
 }
 .footer {
-	background: #000000;
+	background: #FFFFFF;
 	margin: 0px;
 	float: left;
 	width: 100%;
