@@ -1,0 +1,106 @@
+int score;
+int lives;
+Bird b1, b2, b3, b4;
+Pig p1;
+
+void setup() {
+  size(800, 700);
+  score = 0;
+  lives = 3;
+  b1 = new Bird(5, 200);
+  b2 = new Bird(6, 400);
+  b3 = new Bird(7, 600);
+  b4 = new Bird(5, 300);
+  p1 = new Pig(400, 670);
+}
+
+void draw() {
+  background(70, 201, 240);
+  drawBG();
+  b1.display();
+  b1.move();
+  b2.display();
+  b2.move();
+  b3.display();
+  b3.move();
+  b4.display();
+  b4.move();
+  p1.display();
+  if (dist(p1.x, p1.y, b1.x, b1.y)<30) {
+    lives = lives - 1;
+    p1.x = 400;
+    p1.y = 670;
+  } 
+  if (dist(p1.x, p1.y, b2.x, b2.y)<30) { 
+    lives = lives - 1; 
+    p1.x = 400; 
+    p1.y = 670;
+  } 
+  if (dist(p1.x, p1.y, b3.x, b3.y)<30) { 
+    lives = lives - 1; 
+    p1.x = 400; 
+    p1.y = 670; 
+  } 
+  if (dist(p1.x, p1.y, b4.x, b4.y)<30) { 
+    lives = lives - 1; 
+    p1.x = 400; 
+    p1.y = 670; 
+  }
+  if (p1.y <100) {
+    score = score + 100;
+    p1.x = 400;
+    p1.y = 700;
+  }
+
+  if (lives < 1 ) {
+    fill(0);
+    rectMode(CORNER);
+    rect(0, 0, width, height);
+    fill(255); 
+    textSize(23);
+    text("GAME OVER!", 300, 400);
+    noLoop();
+  }
+
+  if (keyPressed) {
+    if (key == 'w' || key == 'W') {
+      p1.move('w');
+    }
+    if (key == 's' || key == 'S') {
+      p1.move('s');
+    }
+    if (key == 'a' || key == 'A') {
+      p1.move('a');
+    }
+    if (key == 'd' || key == 'D') {
+      p1.move('d');
+    }
+  }
+}
+
+
+void keyPressed() {
+  if (key == CODED) {
+    if (keyCode == UP) {
+      p1.move('w');
+    } else if (keyCode == DOWN) {
+      p1.move('s');
+    } else if (keyCode == RIGHT) {
+      p1.move('d');
+    } else if (keyCode == LEFT) {
+      p1.move('a');
+    }
+  }
+}
+
+void drawBG() {
+  fill(0, 0, 100);
+  rect(0, 300, width, 100);
+}
+
+void scorePanel() {
+  fill(222);
+  rect(0, 0, width, 30);
+  fill(0);
+  text("Score:" + score + " Lives:" + lives, 10, 20);
+}
